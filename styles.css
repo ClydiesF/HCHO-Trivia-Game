@@ -44,3 +44,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+#question {
+  text-align: center;
+  text-decoration: underline;
+  color: #f55d3e; }
