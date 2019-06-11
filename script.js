@@ -22,19 +22,33 @@ const Trivia = {
 }
 
 
-
-
 $(".Cat-box").click((e) => {
     let catName = e.target.textContent;
-    console.log(e.target.textContent);
     $("#Cat-Select").text(catName);
     $("#question").text(Trivia[catName].Questions[0]);
-    // Create a "p" Element
-    let answer1 = document.createElement('p');
-    let txt = document.createTextNode(Trivia[catName].Answers[0]);
 
-    answer1.append(txt);
-    console.log(answer1)
-    console.log(Trivia[catName].Answers[0])
-    $(".answers").append(answer1);
+    // Creates a new array and puts the correct answer inside of it 
+    let options = Trivia[catName].dummy[0];
+    options.push(Trivia[catName].Answers[0]);
+    let index = [0, 1, 2, 3]
+        // loop through options and display them in a random order
+    options.forEach((el) => {
+        // Create a "p" Element
+        let random = Math.floor(Math.random() * index.length);
+        let answer1 = document.createElement('p');
+        let txt = document.createTextNode(Trivia[catName].dummy[0][index[random]]);
+        answer1.append(txt);
+        $(".answers").append(answer1);
+        console.log(index.length)
+        console.log(random)
+        index.splice(random, 1)
+
+        console.log(index);
+
+    });
+
 })
+
+// Logic to handle an answer Click
+
+//  Logic to handle the next Button/
